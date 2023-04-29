@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block head %}
+	<title>Edit Bike</title>
+{% endblock %}
+
+{% block body %}
+
+
+<main>
+	<div class="main__container">
+		<form class="card card__input" action = "" method="post" enctype='multipart/form-data'>
+			{% csrf_token %}
+			<h2>Edit {{ bike.bike_name }}</h2>
+			{{ form.as_p }}
+		
+		<button type='submit'>Save changes</button>	
+		</form>
+		
+	</div>
+	<div class="sidebar">
+
+
+
+		
+	</div>
+</main>
+
+
+
+
+{% endblock %}
+
+{% block jquery %}
+
+{% endblock %}
+

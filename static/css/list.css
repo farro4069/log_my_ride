@@ -1,0 +1,47 @@
+.container {
+	margin: 0 auto;
+	height: calc(100vh - 10rem);
+	overflow: hidden auto;
+}
+
+
+
+.bikes__menu {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.bikes__menu ul {
+	list-style: none;
+}
+
+.bikes__menu h2 {
+	grid-column: span 2;
+}
+
+.bikes__menu li {
+	padding: 0.125rem 1rem;
+}
+
+.bikes__menu li:hover {
+	cursor: pointer;
+	background-color: var(--clr-shadow);
+}
+
+.ride__list li {
+	display: grid;
+	grid-template-columns: 12ch 1fr 7ch;
+	font-size: 0.8rem;
+	font-weight: 300;
+}
+
+.ride__list li:hover {
+	cursor:	pointer;
+	background-color: var(--clr-shadow);
+} 
+
+input {
+	width:100%;
+	padding: 0.5rem;
+	border: none;
+}

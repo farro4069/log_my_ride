@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Log my ride</title>
+<link rel="stylesheet" type="text/css" href="/static/css/list.css">
+
+
+{% endblock %}
+
+{% block body %}
+
+
+<main>
+	<div class="main__container">
+	<div class="container">
+		<div class="card rides__list" id="rides__list"></div>		
+	</div>
+	</div>
+	<div class="sidebar">
+		<div class="card bikes__menu"><h2>Select by bike</h2>
+			<ul class="bike__list" id='bikes__current'></ul>
+			<ul class="bike__list" id='bikes__retired'></ul>
+		</div>
+		<div class="card ride__search">
+			<input type="" placeholder="Search for a ride" id="search_term">
+		</div>
+		<div class="card ride__featured" id='ride__feature'></div>
+	</div>
+</main>
+
+
+{% endblock %}
+
+{% block jscript %}
+
+<script type="text/javascript" src='/static/js/list.js'></script>
+
+{% endblock %}

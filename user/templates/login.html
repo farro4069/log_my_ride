@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Login</title>
+{% endblock %}
+
+{% block body %}
+
+<main>
+	<div class="main__container">
+		<h1>Login</h1>
+		<form class="card card__input" method="post">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<button type="submit" value="Login">Login</button>
+		</form>
+		<div class="card">
+			<p>Enter your username and password to be taken to you personal dashboard.</p>
+			<p>If you don't have a subscription, feel free to sign up.</p>
+			<p>You can then add details of your equipment and begin your own ride log to track your progess on the bike.</p>
+		</div>
+	</div>
+	<div class="sidebar">
+		
+	</div>
+</main>
+
+{% endblock %}

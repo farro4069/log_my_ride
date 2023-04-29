@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block head %}
+	<title>Add bike</title>
+{% endblock %}
+
+{% block body %}
+
+<main>
+	<div class="main__container">
+
+		<form method="post" enctype="multipart/form-data" class='card card__input'>
+			{% csrf_token %}
+			<h2>Add a new bike</h2>
+			<div class="card__input-info">
+				<label for="date_acquired">Purchase date</label>
+				<input type="date" name="date_acquired" id='ride_date' value="">
+			</div>
+			<div class="card__input-info">
+				<label for="bike_name">Name</label>
+				<input type="text" name="bike_name" id="bike_name" class="input-field" placeholder="Short name">
+			</div>
+			<div class="card__input-info">
+				<label for="bike_description">Description</label>
+				<input type="text" name="bike_description" id="bike_description" class="input-field" placeholder="Make and model">
+			</div>
+			<div class="card__input-info">
+				<label for="comments">Comments</label>
+				<textarea name="comments" id="comments" class="input-field" placeholder="Purchase details"></textarea>
+			</div>
+
+			<div class="card__input-info">
+				<label for="specs">Specs</label>
+				<textarea name="specs" id="specs" placeholder="Specifications"></textarea>
+			</div>
+			<h2>Upload an image</h2>
+			<input type="file" name="image">
+			<button class='page-button' type="submit">Save bike</button>
+		</form>
+	</div>
+	<div class="sidebar">
+
+	</div>
+</main>
+
+{% endblock %}
+
+
+{% block jscript %}
+
+
+{% endblock %}

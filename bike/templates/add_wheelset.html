@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block head %}
+	<title>Add bike</title>
+{% endblock %}
+
+{% block body %}
+
+<main>
+	<div class="main__container">
+		<div class="card bikes__list" id="wheelsets-current"></div>
+		<div class="card bikes__list" id="wheelsets-retired"></div>
+
+	</div>
+	<div class="sidebar">
+		<div class="card bike__pictured" id='wheelset-featured'></div>
+
+		<form method="post" enctype="multipart/form-data" class='card card__input'>
+			{% csrf_token %}
+			<h2>Add a new wheelset</h2>
+
+			<div class="card__input-info">
+				<label for="id_date_acquired">Purchase date</label>
+				<input type="date" name="id_date_acquired" id='id_date_acquired' value="">
+			</div>
+			<div class="card__input-info">
+				<label for="id_wheels_name">Description</label>
+				{{ form.wheels_name }}
+			</div>
+			<div class="card__input-info">
+				<label for="id_comments">Comments</label>
+				{{ form.comments }}
+			</div>
+			<div class="card__input-info">
+				<label for='id_date_sold'>Date retired</label>
+				<input type="date" name="id_date_sold" id="id_date_sold" value="">
+			</div>
+
+			<div class="card__input-info">
+				<label for='id_image'>Image</label>
+				{{ form.image }}
+			</div>
+			<button class='page-button' type="submit">Save wheelset</button>
+		</form>
+	</div>
+</main>
+
+{% endblock %}
+
+
+{% block jscript %}
+
+<script type="text/javascript" src='/static/js/wheelset.js'></script>
+
+{% endblock %}

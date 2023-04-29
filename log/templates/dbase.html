@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Log my ride</title>
+
+{% endblock %}
+
+{% block body %}
+	<main>
+		<div class="main__container">
+			<p id="inst"></p>
+		</div>
+
+		<div class="sidebar">
+		
+			<form id="form" class="card card__input" action = "" method="post">
+				{% csrf_token %}
+				<h2>Add new data</h2>
+				
+				{{ form.as_p }}
+
+				<div class="card__input-info">
+					<input type="submit" value="Add data">
+				</div>
+
+			</form>
+
+		</div>
+	</main>
+
+{% endblock %}
+
+{% block jscript %}
+
+<script type="text/javascript" src='/static/js/dbase.js'></script>
+<script type="text/javascript" src='/static/js/db_script.js'></script>
+
+
+{% endblock %}

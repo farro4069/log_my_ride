@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Log my ride</title>
+
+{% endblock %}
+
+{% block body %}
+
+
+<main>
+	<div class="main__container">
+		
+			<form id="form" class="card card__input" action = "" method="post">
+				{% csrf_token %}
+				<h2>{{ ride.ride_name }}</h2>
+
+				<div class="card__input-info">
+					<label for="ride_date">Date</label>
+					<input type="date" name="ride_date" id="id_ride_date" value="{{ ride.ride_date|date:'Y-m-d' }}">
+				</div>
+				<div class="card__input-info">
+					<label for="ride_name">Route</label>
+					{{ form.ride_name }}
+				</div>
+				<div class="card__input-info">
+					<label for="ride_distance">Distance</label>
+					{{ form.ride_distance }}
+				</div>
+				<div class="card__input-info">
+					<label for="ride_time">Duration</label>
+					{{ form.ride_time }}
+				</div>
+				<div class="card__input-info">
+					<label for="ride_tss">TSS</label>
+					{{ form.ride_tss }}
+				</div>
+				<div class="card__input-info">
+					<label for="bike_name">Bike</label>
+					{{ form.bike_name }}
+				</div>
+				<div class="card__input-info">
+					<label for="wheelset">Wheelset</label>
+					{{ form.wheelset}}
+				</div>
+				<div class="card__input-info">
+					<label for="ride_comment">Comments</label>
+					{{ form.ride_comment }}
+				</div>
+				<div class="card__input-info">
+					<input type="submit" value="Save changes">
+				</div>
+
+			</form>
+		</div>
+		<div class="sidebar"></div>
+
+</main>
+
+
+{% endblock %}
+
+{% block jscript %}
+
+<script type="text/javascript" src='/static/js/ride.js'></script>
+
+{% endblock %}

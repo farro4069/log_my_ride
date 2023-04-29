@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block head %}
+	{% load humanize %}
+	<title>Bikes</title>
+
+{% endblock %}
+
+{% block body %}
+
+<main>
+	<div class="main__container">
+		<div class="card bike__pictured" id="bike-featured"></div>
+		<div class="card bike__maintenance" id='maintenance'>Maintenance log</div>
+	</div>
+	<div class="sidebar">
+		<a href="/bike/add"><button>Add a new bike</button></a>
+		<div class="card bikes__list" id='bikes-current'></div>
+		<div class="card bikes__list" id='bikes-retired'></div>
+		<form class="card card__input" action = "" method="post">
+			{% csrf_token %}
+			<h2>Maintenance form</h2>
+			<div class="card__input-info hidden">
+				<label for="bike">Bike</label>
+				<input type="text" name="bike" id="id_bike">
+			</div>
+			<div class="card__input-info">
+				<label for="date">Date</label>
+				<input type="date" name="date" id="id_date">
+			</div>
+			<div class="card__input-info">
+				<label for="ride_name">Details</label>
+				{{ form.content }}
+			</div>
+			<div class="card__input-info">
+				<input type="submit" value="Add details">
+			</div>
+		</form>
+	</div>
+</main>
+
+{% endblock %}
+
+{% block jscript %}
+
+<script type="text/javascript" src='/static/js/bikes.js'></script>
+
+{% endblock %}
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+	{% block head %}
+		<title>Ride</title>
+	{% endblock %}
+  <meta charset="utf-8">
+  <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <link rel="icon" type="image/x-icon" href="{% static 'images/favicon_io/favicon.ico' %}">
+  <title>Ride</title>
+</head>
+
+<body class="plain">
+  <div class="navbar">
+    <div class="nav__logo">
+      <img src='/static/images/poor_giraffe.png'>
+      <h1>Log my ride</h1>
+    </div>
+    <div class="nav">
+    <button class="nav__toggle">
+      <span class="hamburger"></span>
+    </button>
+    {% if user.is_authenticated %}
+      <ul class="nav__items">
+        <li class="nav__item"><a href="{% url 'log:log' %}">Home</a></li>
+       <li class="nav__item"><a href="{% url 'bike:bike' %}">Bikes</a></li>
+       <li class="nav__item"><a href="{% url 'bike:wheels' %}">Wheels</a></li>
+       <li class="nav__item"><a href="{% url 'log:ride-list' %}">Rides</a></li>
+        <li class="nav__item"><a href="/rest/">Rest API</a></li>
+        <li class="nav__item"><a href="/admin/">Admin</a></li>
+        <li class="nav__item"><a href="/user/logout/">Log Out</a></li>
+      </ul>
+
+    {% else %}
+      <ul class="nav__items">
+        <li class="nav__item"><a href="{% url 'user:login' %}">Login</a></li>
+        <li class="nav__item"><a href="{% url 'user:register' %}">Sign up</a></li>
+      </ul>        
+
+    {% endif %}
+  </div>
+</div>
+
+{% block body %}  
+
+
+{% endblock %}
+
+<div class='footer'>
+  <div class="footer__items">
+    <img src="/static/images/poor_giraffe.png">
+  </div>
+  <div class="footer__footnotes">
+    <a href="#"><p>&copy; Poor Giraffe 2023</p></a>
+    <p>Logged in as {{ user.username }}</p>
+  </div>
+</div>
+
+
+
+<script type="text/javascript" src='/static/js/base.js'></script>
+{% block jscript %}
+
+{% endblock %}
+
+</body>
+</html>

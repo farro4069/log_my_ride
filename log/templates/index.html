@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block head %}
+
+<title>Log my ride</title>
+
+{% endblock %}
+
+{% block body %}
+	<main>
+		<div class="main__container">
+			<div class="card card__fitness">
+				<div class="fitness-atl"><h2>Fatigue</h2><p></p></div>
+				<div class="fitness-ctl"><h2>Fitness</h2><p></p></div>
+				<div class="fitness-tsb"><h2>Form</h2><p></p></div>
+			</div>
+			<div class="week__data">
+				<div class="circle circle__week">
+					<h2>Last 7 days</h2><p></p>
+					<h3>Previous</h3><b></b>
+				</div>
+				<div class="ramp">
+					<h2>Ramp</h2>
+					<h2>7 days</h2>
+					<p></p>
+					<h2>28 days</h2>
+					<b></b>
+					<h2></h2>
+				</div>
+			</div>
+			<div id='bike__featured' class="card bike__pictured"></div>
+
+			<div id='rides__recent' class="card rides__list"></div>
+			<div id='rides__long' class="card rides__list"></div>
+		</div>
+
+		<div class="sidebar">
+			<div class="card card__bubble"></div>
+			<div class="card card__search">
+				<input id='search__input' class="search" placeholder="Search for rides">
+				<ul id="search__results" class="rides__list"></ul>
+			</div>
+			<div id='ride__featured' class="card ride__featured"></div>
+		
+			<form id="form" class="card card__input" action = "" method="post">
+				{% csrf_token %}
+				<h2>Add a new ride</h2>
+
+				<div class="card__input-info">
+					<label for="ride_date">Date</label>
+					<input type="date" name="ride_date" id="id_ride_date">
+				</div>
+				<div class="card__input-info">
+					<label for="ride_name">Route</label>
+					{{ form.ride_name }}
+				</div>
+				<div class="card__input-info">
+					<label for="ride_distance">Distance</label>
+					{{ form.ride_distance }}
+				</div>
+				<div class="card__input-info">
+					<label for="ride_time">Duration</label>
+					{{ form.ride_time }}
+				</div>
+				<div class="card__input-info">
+					<label for="ride_tss">TSS</label>
+					{{ form.ride_tss }}
+				</div>
+				<div class="card__input-info">
+					<label for="bike_name">Bike</label>
+					{{ form.bike_name }}
+				</div>
+				<div class="card__input-info">
+					<label for="wheelset">Wheelset</label>
+					{{ form.wheelset}}
+				</div>
+				<div class="card__input-info">
+					<label for="ride_comment">Comments</label>
+					{{ form.ride_comment }}
+				</div>
+				<div class="card__input-info">
+					<input type="submit" value="Add ride">
+				</div>
+
+			</form>
+
+		</div>
+	</main>
+
+{% endblock %}
+
+{% block jscript %}
+
+<script type="text/javascript" src='/static/js/dashboard.js'></script>
+
+{% endblock %}
