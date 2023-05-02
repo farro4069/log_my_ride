@@ -19,10 +19,12 @@
       <img src='/static/images/poor_giraffe.png'>
       <h1>Log my ride</h1>
     </div>
-    <div class="nav">
-    <button class="nav__toggle">
+    <div class="nav__toggle">
       <span class="hamburger"></span>
-    </button>
+    </div>
+</div>
+  <div class="nav">
+
     {% if user.is_authenticated %}
       <ul class="nav__items">
         <li class="nav__item"><a href="{% url 'log:log' %}">Home</a></li>
@@ -39,10 +41,8 @@
         <li class="nav__item"><a href="{% url 'user:login' %}">Login</a></li>
         <li class="nav__item"><a href="{% url 'user:register' %}">Sign up</a></li>
       </ul>        
-
     {% endif %}
   </div>
-</div>
 
 {% block body %}  
 

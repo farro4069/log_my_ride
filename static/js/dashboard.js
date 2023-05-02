@@ -188,7 +188,7 @@ function renderRecentRides() {
 
 // ********************* Long rides
 function renderLongRides() {
-	let longRides = rides.sort((a, b) => parseFloat(b.ride_distance) > parseFloat(a.ride_distance)).slice(0, 5);
+	let longRides = rides.sort((a, b) => parseFloat(b.ride_distance) > parseFloat(a.ride_distance)).slice(0, 6);
 	let longElementContent = '<h2>Long rides</h2><ul>';
 	longRides.forEach(r => longElementContent += `<li data-ride=${r.id}><p>${formatFullDate(r.ride_date)}</p><span>${r.ride_name}</span><span>${parseFloat(r.ride_distance).toFixed(0)}km</span></li>`)
 	longElementContent += '</ul>'
@@ -253,23 +253,11 @@ function searchRides(searchString) {
 	let searchRides = [];
 	rides.sort((a, b) => b.ride_date > a.ride_date).forEach(r => { 
 		rideDetail = (r.ride_name + r.ride_comment).trim(); 
-		if (rideDetail.toLowerCase().indexOf(searchString) != -1) {
+		if (rideDetail.toLowerCase().indexOf(searchString.toLowerCase()) != -1) {
 			searchRides.push(r);
 		}
 	})
 	renderSearchResults(searchRides);
-}
-
-
-function searchRidesBAK(searchString) {
-	let searchResultsContent = "";
-	rides.sort((a, b) => b.ride_date > a.ride_date).forEach(r => { 
-		rideDetail = (r.ride_name + r.ride_comment).trim(); 
-		if (rideDetail.toLowerCase().indexOf(searchString) != -1) {
-			searchResultsContent += `<li data-ride=${r.id}><p>${formatFullDate(r.ride_date)}</p><p>${r.ride_name}</p><p>${parseFloat(r.ride_distance).toFixed(0)}km</p></li>`;
-			searchResults.innerHTML = searchResultsContent;
-		}
-	})
 }
 
 function renderSearchResults(ride) {
