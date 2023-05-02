@@ -1,21 +1,26 @@
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
 .navbar {
 	width: 100vw;
-	padding: 0 2rem;
 	background: linear-gradient(
 			-45deg, transparent 50%, var(--clr-hover) 50%), 
 		linear-gradient(
 			45deg, var(--clr-ctl) 50%, var(--clr-nav) 50%);
 	background-size: 4rem 4rem;
 	display: flex;
-	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+	overflow: hidden;
+	position: relative;
 }
 
 .nav__logo {
 	display: flex;
-	flex-direction: row;
 	place-items: center;
+	padding: 0 2rem;
 	gap: 2rem;
 	color: var(--clr-card);
 }
@@ -29,16 +34,16 @@
 
 .nav {
 	background-color: var(--clr-light);
-	position: absolute;
+	position: fixed;
 	top: 0;
 	right: 0;
 	box-shadow: 0 0 3em rgba(0, 0, 0, 0.2);
 	transform: translateX(100%);
 	transition: transform 500ms cubic-bezier(0.5, 0, 0.5, 1.1);
-	z-index: 10;
 }
 
 .nav__items {
+	transform: translateX(100%);
 	list-style: none;
 	margin: 0;
 	display: flex;
@@ -50,7 +55,8 @@
 	font-size: 1.25rem;
 	color: var(--clr-card);
 	background: var(--clr-nav);
-	transition: transform 350ms ease-in-out 100ms, opacity 55ms linear 300ms;
+	opacity: 0.5;
+	transition: transform 350ms ease-in-out 100ms, opacity 1000ms ease-in-out 500ms;
 }
 
 .nav__item {
@@ -72,10 +78,6 @@
 
 
 .nav__toggle {
-	position: absolute;
-	margin: 0;
-	top: 0.5rem;
-	left: 0;
 	width: 4rem;
 	height: 3rem;
 	background: var(--clr-nav);
@@ -84,7 +86,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	transform: translateX(-100%);
+	transform: translateX(0);
 	transition: transform 350ms cubic-bezier(0.5, 0, 0.5, 1.1);
 	padding: 0;
 }
@@ -142,7 +144,7 @@
 }
 
 .nav-open .nav__toggle {
-	transform: translateX(-100%);
+	transform: translateX(-180px);
 }
 
 .nav-open .nav__toggle:hover {
@@ -150,7 +152,7 @@
 	cursor: pointer;
 }
 
-.nav-open .nav__list {
+.nav-open .nav__items {
 	transform: translateX(0);
 	opacity: 1;
 }

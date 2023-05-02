@@ -36,12 +36,6 @@ h2 {
 	font-weight: 500;
 }
 
-a {
-	text-decoration: none;
-	color: inherit;
-
-}
-
 * {
 	margin: 0;
 	padding: 0;
@@ -52,7 +46,9 @@ body {
 	min-height: 100vh;
 	font-family: HankenGrotesk;
 	font-weight: 300;
+	position: relative;
 	overflow-x: hidden;
+	left: 0;
 }
 
 .plain {
