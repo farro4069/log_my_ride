@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-5i+0+y5=k^n(9wnu3r_tl5#5r4h^zuy&vq!tnqv5^!we@gu3t='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['farro4069.pythonanywhere.com']
 
 
 # Application definition
@@ -76,7 +76,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'ride.wsgi.application'
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': ( 
+    'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
     )
 }
