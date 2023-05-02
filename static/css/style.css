@@ -26,6 +26,10 @@
 
 }
 
+html {
+	font-size: 14px;
+}
+
 *, 
 *::before, 
 *::after {
@@ -109,6 +113,10 @@ main {
 }
 
 @media(min-width: 840px) {
+	html {
+		font-size: 16px;
+	}
+
 	main {
 		margin-left: 2rem;
 		grid-template-columns: 1fr var(--sidebar-width);
