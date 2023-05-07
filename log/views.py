@@ -60,25 +60,27 @@ class RideEdit(TemplateView):
 
 	def post(self, request, pk=None):
 		template_name = 'index.html'
-		form = RideLogForm(request.POST or None)
+		ride = get_object_or_404(RideDetail, id=pk)
+		form = RideEditForm(request.POST or None)
 		if form.is_valid():
 			form.instance.id = pk
-			RideDetail = form.save(commit=False)
-			RideDetail.user = request.user
-			RideDetail.ride_date = form.cleaned_data['ride_date']
-			RideDetail.ride_name = form.cleaned_data['ride_name']
-			RideDetail.ride_distance = form.cleaned_data['ride_distance']
-			RideDetail.ride_time = form.cleaned_data['ride_time']
-			RideDetail.ride_tss = form.cleaned_data['ride_tss']
-			RideDetail.ride_comment = form.cleaned_data['ride_comment']
-			RideDetail.bike_name = form.cleaned_data['bike_name']
-			RideDetail.wheelset = form.cleaned_data['wheelset']
-			RideDetail.save()
+			NewRide = form.save(commit=False)
+			NewRide.user = request.user
+			NewRide.ride_date = form.cleaned_data['ride_date']
+			NewRide.ride_name = form.cleaned_data['ride_name']
+			NewRide.ride_distance = form.cleaned_data['ride_distance']
+			NewRide.ride_time = form.cleaned_data['ride_time']
+			NewRide.ride_tss = form.cleaned_data['ride_tss']
+			NewRide.ride_comment = form.cleaned_data['ride_comment']
+			NewRide.bike_name = form.cleaned_data['bike_name']
+			NewRide.wheelset = form.cleaned_data['wheelset']
+			NewRide.save()
 			return redirect('log:log')
 		else:
-			form = RideLogForm()
+			form = RideEditForm(request.POST or None)
 			context = {
-				'form':form
+				'form':form,
+				'ride':ride
 			}
 			return render(request, 'ride.html', context)
 
