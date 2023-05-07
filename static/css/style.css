@@ -105,7 +105,6 @@ main {
 .sidebar {
 	background: var(--clr-shadow);
 	padding: 1rem 0;
-	min-height: calc(100vh - 10rem);
 }
 
 .sidebar a {
@@ -121,12 +120,25 @@ main {
 		margin-left: 2rem;
 		grid-template-columns: 1fr var(--sidebar-width);
 	}
+
+	.sidebar {
+		min-height: calc(100vh - 10rem);
+	}
 }
 
 @media(min-width: 1240px) {
 	.main__container {
 		grid-template-columns: 1fr;
 	}
+}
+
+.card {
+	width: clamp(360px, 390px, 390px);
+	margin: auto;
+	padding: 1rem;
+	background: var(--clr-card);
+	border-radius: 1rem;
+	box-shadow: 0.5rem 0.5rem 0.5rem 0 var(--clr-shadow);
 }
 
 .circle {
@@ -184,6 +196,8 @@ main {
 }
 
 .week__data {
+	background: transparent;
+	box-shadow: none;
 	display: grid;
 	grid-template-columns: 3fr 2fr;
 	grid-gap: 2rem;
@@ -233,17 +247,6 @@ main {
 	font-size: 1rem;
 	font-weight: 300;
 }
-
-
-.card {
-	width: clamp(360px, 390px, 390px);
-	margin: auto;
-	padding: 1rem;
-	background: var(--clr-card);
-	border-radius: 1rem;
-	box-shadow: 0.5rem 0.5rem 0.5rem 0 var(--clr-shadow);
-}
-
 
 .rides__list {
 

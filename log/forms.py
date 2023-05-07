@@ -26,6 +26,7 @@ class RideLogForm(forms.ModelForm):
 	def __init__(self, *args, **kwargs):
 		user=kwargs.pop('user', None)
 		super().__init__(*args, **kwargs)
+		self.fields["ride_comment"].required = False
 		if user:
 			self.fields['bike_name'].queryset = BikeDetail.objects.filter(user=user, date_sold__isnull=True)
 			self.fields['wheelset'].queryset = Wheelsets.objects.filter(user=user, date_sold__isnull=True)
@@ -58,7 +59,7 @@ class RideEditForm(forms.ModelForm):
 		super().__init__(*args, **kwargs)
 		if user:
 			self.fields['bike_name'].queryset = BikeDetail.objects.filter(user=user, date_sold__isnull=True)
-			self.fields['wheelset'].queryset = Wheelsets.objects.filter(user=user, date_sold__isnull=True)
+			self.fields['wheelset'].queryset = Wheelsets.objects.filter(user=user)
 
 
 	def clean(self, *args, **kwargs):

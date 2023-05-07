@@ -57,7 +57,7 @@ a {
 	color: var(--clr-card);
 	background: var(--clr-nav);
 	opacity: 0.5;
-	transition: transform 350ms ease-in-out 100ms, opacity 1000ms ease-in-out 500ms;
+	transition: transform 350ms ease-in-out 0ms, opacity 100ms ease-in-out 100ms;
 }
 
 .nav__item {
