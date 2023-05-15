@@ -92,3 +92,11 @@ class RideList(TemplateView):
 
 		return render(request, template_name, context)
 
+
+class RampChart(TemplateView):
+	def get(self, request):
+		template_name = 'chart.html'
+		context = {}
+
+		return render(request, template_name, context)
+
