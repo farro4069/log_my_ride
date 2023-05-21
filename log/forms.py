@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from bike.models import BikeDetail, Wheelsets, Maintenance
 from log.models import RideDetail
 
+# Add argument to allow optional comments
 
 class RideLogForm(forms.ModelForm):
 	wheelset = forms.ModelChoiceField(queryset=Wheelsets.objects.filter(date_sold__isnull=True), empty_label=None)
