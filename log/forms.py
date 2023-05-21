@@ -62,7 +62,6 @@ class RideEditForm(forms.ModelForm):
 			self.fields['bike_name'].queryset = BikeDetail.objects.filter(user=user, date_sold__isnull=True)
 			self.fields['wheelset'].queryset = Wheelsets.objects.filter(user=user)
 
-
 	def clean(self, *args, **kwargs):
 		user = self.cleaned_data.get('name')
 		return self.cleaned_data
