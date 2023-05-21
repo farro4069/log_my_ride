@@ -9,6 +9,7 @@
 	--clr-background: linear-gradient(hsl(200 58% 50% / 0.9), hsl(210 58% 65% / 0.8));
 	--clr-nav: hsl(208, 60%, 40%, 0.8);
 	--clr-circle: hsl(30, 90%, 50%);
+	--clr-primary: hsl(30, 90%, 50%);
 	--clr-shadow: hsl(0 0% 0% / 0.1);
 	--clr-hover: hsl(200 60% 50% / 0.3);
 	--clr-border: hsl(0, 0%, 100%);
@@ -18,7 +19,6 @@
 	--clr-tsb: hsl(50, 75%, 42%);
 	--clr-bike: hsl(50, 100%, 100%);
 	--sidebar-width: 400px;
-	--clr-primary: #ee6352;
 	--clr-high: #ee6352;
 	--clr-dark: #333333;
 	--clr-neutral: #dddddd;
@@ -36,7 +36,13 @@ html {
 	box-sizing: border-box;
 }
 
+
+h1 {
+	color: var(--clr-card);
+} 
+
 h2 {
+	color: var(--clr-primary);
 	font-weight: 500;
 }
 
@@ -205,7 +211,19 @@ main {
 	place-content: space-around center;
 }
 
+.card__chart {
+	padding: 0;
+	border-radius: 0;
+}
+
 .ramp {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.ramp a {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -214,6 +232,11 @@ main {
 	background: var(--clr-nav);
 	border: solid var(--clr-card) 2px;
 	box-shadow: 0.5rem 0.5rem 0.5rem 0 var(--clr-shadow);
+}
+
+.ramp:hover {
+	cursor: pointer;
+	background-color: var(--clr-hover);
 }
 
 .ramp h2 {
@@ -313,6 +336,11 @@ main {
 	transform: rotate(1deg);
 }
 
+.bike__pictured:hover {
+	cursor: pointer;
+	background-color: var(--clr-hover);
+}
+
 .bike__pictured li {
 	display: grid;
 }
@@ -385,13 +413,21 @@ main {
 .card__input {
 	grid-row: 2 span 3;
 	display: grid;
+	grid-template-columns: repeat(3, 1fr);
 	place-content: center;
-	grid-gap: 0.5rem;
+	grid-gap: 0.25rem 1rem;
+}
+
+.card__input h2 {
+	grid-column: span 3;
 }
 
 .card__input p,
-.card__input-info {
+.card__input-info,
+.ride__input-info {
+	grid-column: span 3;
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
 	flex-wrap: wrap;
 }
@@ -399,10 +435,34 @@ main {
 .card__input input, 
 .card__input textarea, 
 .card__input-info input,
+.ride__input-info input,
 .card__input-info textarea,
-.card__input-info select {
-	width: 210px;
+.ride__input-info textarea,
+.card__input-info select,
+.ride__input-info select {
+	width: 100%;
 	padding: 5px 10px;
+}
+
+.card__input-info label,
+.ride__input-info label {
+	font-size: 0.75rem;
+	opacity: 0.5;
+}
+
+.ride__input-info:nth-child(5) {
+	grid-column: 1;
+	width: auto;
+}
+
+.ride__input-info:nth-child(6) {
+	grid-column: 2;
+	width: auto;
+}
+
+.ride__input-info:nth-child(7) {
+	grid-column: 3;
+	width: auto;
 }
 
 .card__input textarea {
@@ -412,13 +472,22 @@ main {
 }
 
 button,
-.card__input-info input[type='submit'] {
+.card__input-info input[type='submit'], 
+.ride__input-info input[type='submit'] {
+	width: 100%;
 	margin: 1rem auto;
 	padding: 0.5rem 3rem;
+	color: var(--clr-card);
 	background: var(--clr-circle);
 	border: 1px solid var(--clr-background);
 	border-radius: 1rem;
 	cursor: pointer;
+}
+
+button:hover,
+.card__input-info input[type='submit']:hover, 
+.ride__input-info input[type='submit']:hover {
+	background-color: var(--clr-hover);	
 }
 
 .card__search input {
@@ -454,6 +523,7 @@ button,
 .fitness-atl h2,
 .fitness-ctl h2,
 .fitness-tsb h2 {
+	color: inherit;
 	font-size: 1rem;
 	font-weight: 300;
 	text-transform: uppercase;

@@ -21,16 +21,19 @@
 					<h3>Previous</h3><b></b>
 				</div>
 				<div class="ramp">
-					<h2>Ramp</h2>
-					<h2>7 days</h2>
-					<p></p>
-					<h2>28 days</h2>
-					<b></b>
-					<h2></h2>
+					<a href="{% url 'log:chart' %}">
+						<h2>Ramp</h2>
+						<h2>7 days</h2>
+						<p></p>
+						<h2>28 days</h2>
+						<b></b>
+						<h2></h2>
+					</a>
 				</div>
 			</div>
-			<div id='bike__featured' class="card bike__pictured"></div>
-
+			<a href="{% url 'bike:bike' %}">
+				<div id='bike__featured' class="card bike__pictured"></div>
+			</a>
 			<div id='rides__recent' class="card rides__list"></div>
 			<div id='rides__long' class="card rides__list"></div>
 		</div>
@@ -47,39 +50,39 @@
 				{% csrf_token %}
 				<h2>Add a new ride</h2>
 
-				<div class="card__input-info">
+				<div class="ride__input-info">
 					<label for="ride_date">Date</label>
 					<input type="date" name="ride_date" id="id_ride_date">
 				</div>
-				<div class="card__input-info">
+				<div class="ride__input-info">
 					<label for="ride_name">Route</label>
 					{{ form.ride_name }}
 				</div>
-				<div class="card__input-info">
+				<div class="ride__input-info">
 					<label for="ride_distance">Distance</label>
 					{{ form.ride_distance }}
 				</div>
-				<div class="card__input-info">
+				<div class="ride__input-info">
 					<label for="ride_time">Duration</label>
 					{{ form.ride_time }}
 				</div>
-				<div class="card__input-info">
+				<div class="ride__input-info">
 					<label for="ride_tss">TSS</label>
 					{{ form.ride_tss }}
 				</div>
-				<div class="card__input-info">
+				<div class="ride__input-info">
 					<label for="bike_name">Bike</label>
 					{{ form.bike_name }}
 				</div>
-				<div class="card__input-info">
+				<div class="ride__input-info">
 					<label for="wheelset">Wheelset</label>
 					{{ form.wheelset}}
 				</div>
-				<div class="card__input-info">
+				<div class="ride__input-info">
 					<label for="ride_comment">Comments</label>
 					{{ form.ride_comment }}
 				</div>
-				<div class="card__input-info">
+				<div class="ride__input-info">
 					<input type="submit" value="Add ride">
 				</div>
 

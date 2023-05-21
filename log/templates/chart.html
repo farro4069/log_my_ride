@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block head %}
+
+<title>Log my ride</title>
+
+{% endblock %}
+
+{% block body %}
+	<main>
+		<div class="main__container">
+			<div class="card card__chart">
+				<canvas id="ramp7days"></canvas>
+			</div>
+			<div class="card card__chart">
+				<canvas id="ramp28days"></canvas>
+			</div>
+			<div class="card card__chart">
+				<canvas id="ramp90days"></canvas>
+			</div>
+		</div>
+		<div class='sidebar'>
+
+		</div>
+	</main>
+{% endblock %}
+
+{% block jscript %}
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="text/javascript" src='/static/js/chart.js'></script>
+
+{% endblock %}
