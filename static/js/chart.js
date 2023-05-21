@@ -35,7 +35,8 @@ function handleData(data) {
 	render90Chart(fitData.dailyData.slice(270));
 }
 
-// ********************* Calculate daily scores the input form
+// ********************* Calculate daily scores
+
 function fitnessData() {
 	let fitCtl = 75;
 	let fitAtl = 75;
